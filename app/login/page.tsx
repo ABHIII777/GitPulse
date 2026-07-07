@@ -1,0 +1,72 @@
+"use client"
+
+import { useState } from "react"
+
+export default function LoginPage() {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-[#0a0a0a] px-4">
+      <div className="w-full max-w-sm">
+        <div className="flex flex-col items-center mb-8">
+          <div className="grid grid-cols-2 gap-0.5 mb-3">
+            <div className="w-3 h-3 bg-white/80" />
+            <div className="w-3 h-3 bg-white/40" />
+            <div className="w-3 h-3 bg-white/40" />
+            <div className="w-3 h-3 bg-white/80" />
+          </div>
+          <h1 className="text-xl font-semibold tracking-tight">GitPulse</h1>
+          <p className="text-sm text-white/40 mt-1">Welcome back</p>
+        </div>
+
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="space-y-4"
+        >
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-white/70 mb-1.5">
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@example.com"
+              className="w-full px-3 py-2.5 bg-transparent border border-white/10 rounded-lg text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/30 transition-colors"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-white/70 mb-1.5">
+              Password
+            </label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="••••••••"
+              className="w-full px-3 py-2.5 bg-transparent border border-white/10 rounded-lg text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/30 transition-colors"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition-colors"
+          >
+            Log in
+          </button>
+        </form>
+
+        <p className="text-sm text-white/40 text-center mt-6">
+          Don&apos;t have an account?{" "}
+          <span className="text-white/70 hover:text-white transition-colors cursor-default">
+            Sign up
+          </span>
+        </p>
+      </div>
+    </div>
+  )
+}
