@@ -1,12 +1,15 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 export default function SignupPage() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
+
+  const router = useRouter();
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#0a0a0a] px-4">
@@ -85,6 +88,7 @@ export default function SignupPage() {
           <button
             type="submit"
             className="w-full py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition-colors"
+            onClick={() => router.push("/login")}
           >
             Create account
           </button>
@@ -92,7 +96,10 @@ export default function SignupPage() {
 
         <p className="text-sm text-white/40 text-center mt-6">
           Already have an account?{" "}
-          <span className="text-white/70 hover:text-white transition-colors cursor-default">
+          <span
+            className="text-white/70 hover:text-white transition-colors cursor-default"
+            onClick={() => router.push("/login")}
+          >
             Log in
           </span>
         </p>
