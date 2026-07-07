@@ -1,10 +1,13 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+
+  const router = useRouter();
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#0a0a0a] px-4">
@@ -55,6 +58,7 @@ export default function LoginPage() {
           <button
             type="submit"
             className="w-full py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition-colors"
+            onClick={() => router.push("/dashboard")}
           >
             Log in
           </button>
@@ -62,7 +66,10 @@ export default function LoginPage() {
 
         <p className="text-sm text-white/40 text-center mt-6">
           Don&apos;t have an account?{" "}
-          <span className="text-white/70 hover:text-white transition-colors cursor-default">
+          <span
+            className="text-white/70 hover:text-white transition-colors cursor-default"
+            onClick={() => router.push("/signup")}
+          >
             Sign up
           </span>
         </p>
